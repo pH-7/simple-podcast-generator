@@ -1,8 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace PierreHenry\PodcastGenerator\Podcast\Feed;
 
+use PierreHenry\PodcastGenerator\Podcast\File;
 use PierreHenry\PodcastGenerator\Xml\Rss\Feed;
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
 
 class Generator
 {
@@ -20,18 +25,16 @@ class Generator
 
     private function collectAudioFiles(): void
     {
-        $files = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($this->path));
+        $recursiveDirectory = new RecursiveDirectoryIterator($this->path);
 
-        foreach ($files as $name => $value) {
-            if (pathinfo($name, PATHINFO_EXTENSION) !== 'mp3' || pathinfo($name, PATHINFO_EXTENSION) !== 'm4a') {
-                continue;
+        foreach (new RecursiveIteratorIterator($recursiveDirectory) as $file => $key) {
+            if (File::isValidExtension($file)) {
+                $this->podcastFiles[] = [
+                    'title' => $this->getNameFromPath($file),
+                    'path' => $file,
+                    'url' => $this->baseUrl . $this->getRelativePath($file)
+                ];
             }
-
-            $this->podcastFiles[] = [
-                'title' => $this->getNameFromPath($name),
-                'path' => $name,
-                'url' => $this->baseUrl . $this->getRelativePath($name)
-            ];
         }
     }
 
@@ -45,11 +48,12 @@ class Generator
         return substr($name, strlen($this->path) + strlen('/'));
     }
 
-    public function outputFeed()
+    public function outputFeed(): string|false
     {
         $feed = new Feed('Podcast Name', 'http://localhost');
         $feed->setHeaders();
         $feed->generate($this->podcastFiles);
-        $feed->saveXML();
+
+        return $feed->saveXML();
     }
 }
