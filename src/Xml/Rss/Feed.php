@@ -22,15 +22,13 @@ class Feed extends DOMDocument
         $rssElement = new DOMElement('rss');
         $this->appendChild($rssElement);
         $rssElement->setAttribute('version', self::DOCUMENT_VERSION);
-        $channelElement = new DOMElement('channel');
-        $rssElement->appendChild($channelElement);
+        $this->channelElement = new DOMElement('channel');
+        $rssElement->appendChild($this->channelElement);
         $titleElement = new DOMElement('title');
-        $channelElement->appendChild($titleElement);
+        $this->channelElement->appendChild($titleElement);
         $titleElement->appendChild(new DOMText($title));
-        $channelElement->appendChild(new DOMElement('description'));
-        $titleElement = new DOMElement('title');
-        $titleElement->appendChild(new DOMText($title));
-        $channelElement->appendChild(new DOMElement('link', $link));
+        $this->channelElement->appendChild(new DOMElement('description'));
+        $this->channelElement->appendChild(new DOMElement('link', $link));
 
         $this->channelElement;
     }
