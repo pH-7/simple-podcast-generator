@@ -47,13 +47,8 @@ class Feed extends DOMDocument
             $enclosureElement = new DOMElement('enclosure');
             $itemElement->appendChild($enclosureElement);
             $enclosureElement->setAttribute('type', 'audio/mpeg');
-            $enclosureElement->setAttribute('length', filesize($file['path']));
+            $enclosureElement->setAttribute('length', (string)filesize($file['path']));
         }
-    }
-
-    public function __toString(): string
-    {
-        return $this->saveXML();
     }
 
     public function setHeaders(): void

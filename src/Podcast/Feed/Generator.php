@@ -1,6 +1,6 @@
 <?php
 
-namespace PierreHenry\PodcastGenerator\Podcast;
+namespace PierreHenry\PodcastGenerator\Podcast\Feed;
 
 use PierreHenry\PodcastGenerator\Xml\Rss\Feed;
 
@@ -8,6 +8,7 @@ class Generator
 {
     private string $path;
     private string $baseUrl;
+    private array $podcastFiles = [];
 
     public function __construct(string $path, string $baseUrl)
     {
@@ -21,21 +22,17 @@ class Generator
     {
         $files = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($this->path));
 
-        foreach (files as $name => $value) {
+        foreach ($files as $name => $value) {
             if (pathinfo($name, PATHINFO_EXTENSION) !== 'mp3' || pathinfo($name, PATHINFO_EXTENSION) !== 'm4a') {
                 continue;
             }
 
-            $files[] = [
+            $this->podcastFiles[] = [
                 'title' => $this->getNameFromPath($name),
                 'path' => $name,
                 'url' => $this->baseUrl . $this->getRelativePath($name)
             ];
         }
-
-        $feed = new Feed('Podcast Name', 'http://localhost');
-        $feed->setHeaders();
-        echo $feed->generate($files);
     }
 
     private function getNameFromPath($name): string
@@ -46,5 +43,13 @@ class Generator
     private function getRelativePath($name): string
     {
         return substr($name, strlen($this->path) + strlen('/'));
+    }
+
+    public function outputFeed()
+    {
+        $feed = new Feed('Podcast Name', 'http://localhost');
+        $feed->setHeaders();
+        $feed->generate($this->podcastFiles);
+        $feed->saveXML();
     }
 }
