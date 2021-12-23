@@ -1,0 +1,8 @@
+vendor
+package.lock
+
+# Ignore PHPStorm config folder
+.idea
+
+# OS files
+.DS_Store
