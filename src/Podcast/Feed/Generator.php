@@ -42,7 +42,7 @@ class Generator
         }
     }
 
-    private function getNameFromPath($name): string
+    private function getNameFromPath(string $name): string
     {
         $name = $this->getRelativePath($name);
         $name = str_replace([...File::SUPPORTED_EXTENSIONS, '.'], '', $name);
@@ -51,7 +51,7 @@ class Generator
         return $name;
     }
 
-    private function getRelativePath($name): string
+    private function getRelativePath(string $name): string
     {
         return substr($name, strlen($this->path) + strlen('/'));
     }
