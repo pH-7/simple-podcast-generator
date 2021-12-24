@@ -15,7 +15,7 @@ platforms.
 
 ## :hammer: Requirements
 
-PHP 8+ 🐘
+[PHP 8+](https://www.php.net/releases/8.0/en.php) 🐘
 
 ## :building_construction: Installation
 
