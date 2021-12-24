@@ -54,7 +54,7 @@ class Generator
 
     public function outputFeed(): string|bool
     {
-        $feed = new Feed('Podcast Name', 'http://localhost');
+        $feed = new Feed(PODCAST_NAME, ROOT_URL);
         $feed->setHeaders();
         $feed->generate($this->podcastFiles);
 
