@@ -1,6 +1,5 @@
 <?php
 
-
 declare(strict_types=1);
 
 namespace PierreHenry\PodcastGenerator\Podcast;
@@ -12,14 +11,14 @@ final class File
     private const MP3_EXTENSION = 'mp3';
     private const MP4_EXTENSION = 'm4a';
 
-    private const VALID_EXTENSIONS = [
+    public const SUPPORTED_EXTENSIONS = [
         self::MP3_EXTENSION,
         self::MP4_EXTENSION
     ];
 
     #[Pure] public static function isValidExtension(string $file): bool
     {
-        return in_array(File::getExtension($file), File::VALID_EXTENSIONS);
+        return in_array(File::getExtension($file), File::SUPPORTED_EXTENSIONS);
     }
 
     public static function getExtension(string $file): string

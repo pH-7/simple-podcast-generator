@@ -32,7 +32,7 @@ class Generator
                 $this->podcastFiles[] = [
                     'title' => $this->getNameFromPath($file),
                     'path' => $file,
-                    'url' => $this->baseUrl . $this->getRelativePath($file)
+                    'url' => $this->baseUrl . '/audio-files/' . $this->getRelativePath($file)
                 ];
             }
         }
@@ -40,7 +40,11 @@ class Generator
 
     private function getNameFromPath($name): string
     {
-        return str_replace(['mp3', 'mp4'], $this->getRelativePath($name), '');
+        $name = $this->getRelativePath($name);
+        $name = str_replace([...File::SUPPORTED_EXTENSIONS, '.'], '', $name);
+        $name = str_replace('-', ' ', $name);
+
+        return $name;
     }
 
     private function getRelativePath($name): string
@@ -48,7 +52,7 @@ class Generator
         return substr($name, strlen($this->path) + strlen('/'));
     }
 
-    public function outputFeed(): string|false
+    public function outputFeed(): string|bool
     {
         $feed = new Feed('Podcast Name', 'http://localhost');
         $feed->setHeaders();
