@@ -13,7 +13,7 @@
 - [About](#cook-author)
 - [License](#page_with_curl-license)
 
-## :mag_right: :Summary
+## :mag_right: Summary
 
 ### Host your podcast files and generate the RSS Podcast feed
 
