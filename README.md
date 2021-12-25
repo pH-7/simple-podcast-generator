@@ -1,5 +1,9 @@
 # Podcast RSS Feed Generator
 
+A very simple way to host your podcast files and generate the RSS Podcast feed 🎙
+
+![Simple Podcast Generator](podcast-feed-generator.png)
+
 ## :book: Contents
 
 - [Requirements](#hammer-requirements)
