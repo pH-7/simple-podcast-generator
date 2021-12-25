@@ -34,7 +34,7 @@ platforms.
 
 ## :thought_balloon: Usage
 
-<!-- Add what you need here -->
+Ideal for publishing easily and freely your podcast over the different music platforms (iTunes,Google Podcasts, Spotify, Amazon Music, ...).
 
 ## :cook: Author
 
