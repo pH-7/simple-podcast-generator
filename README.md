@@ -1,18 +1,21 @@
 # Podcast RSS Feed Generator
 
-A very simple way to host your podcast files and generate the RSS Podcast feed 🎙
+*A very simple way to host your podcast files and generate the RSS Podcast feed 🎙*
 
 ![Simple Podcast Generator](podcast-feed-generator.png)
 
 ## :book: Contents
 
+- [Summary](#mag_right-summary)
 - [Requirements](#hammer-requirements)
 - [Installation](#building_construction-installation)
 - [Usage](#thought_balloon-usage)
 - [About](#cook-author)
 - [License](#page_with_curl-license)
 
-### Simple way to host your podcast files and generate the RSS Podcast feed
+## :mag_right: :Summary
+
+### Host your podcast files and generate the RSS Podcast feed
 
 A simple PHP script that reads your MP3/M4A audio files to generate an elegant RSS2 feed to be then published to podcast
 platforms.
