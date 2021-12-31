@@ -25,7 +25,7 @@ final class File
         return in_array(File::getExtension($file), File::SUPPORTED_EXTENSIONS);
     }
 
-    public static function getExtension(string $file): string
+    private static function getExtension(string $file): string
     {
         return strtolower(pathinfo($file, PATHINFO_EXTENSION));
     }
