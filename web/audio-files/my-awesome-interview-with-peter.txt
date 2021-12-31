@@ -1,2 +1,0 @@
-name: My awesome interview with Peter
-description: My awesome interview with Peter went very well! Let's listen it :)

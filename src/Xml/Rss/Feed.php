@@ -45,7 +45,7 @@ class Feed extends DOMDocument
             $titleElement = new DOMElement('title');
             $itemElement->appendChild($titleElement);
             $titleElement->appendChild(new DOMText($file['title']));
-            $itemElement->appendChild(new DOMElement('description'));
+            $itemElement->appendChild(new DOMElement('description', $file['description']));
             $itemElement->appendChild(new DOMElement('link', $file['url']));
             $itemElement->appendChild(new DOMElement('guid', $file['url']));
             $enclosureElement = new DOMElement('enclosure');

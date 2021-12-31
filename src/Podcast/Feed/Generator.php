@@ -15,13 +15,15 @@ use RecursiveIteratorIterator;
 
 class Generator
 {
-    private string $path;
+    private const META_TXT_FILE_EXT = '.meta.txt';
+
+    private string $audioFilesPath;
     private string $baseUrl;
     private array $podcastFiles = [];
 
-    public function __construct(string $path, string $baseUrl)
+    public function __construct(string $audioFilesPath, string $baseUrl)
     {
-        $this->path = $path;
+        $this->audioFilesPath = $audioFilesPath;
         $this->baseUrl = $baseUrl;
 
         $this->collectAudioFiles();
@@ -29,31 +31,45 @@ class Generator
 
     private function collectAudioFiles(): void
     {
-        $recursiveDirectory = new RecursiveDirectoryIterator($this->path);
+        $recursiveDirectory = new RecursiveDirectoryIterator($this->audioFilesPath);
 
         foreach (new RecursiveIteratorIterator($recursiveDirectory) as $file => $key) {
             if (File::isValidExtension($file)) {
                 $this->podcastFiles[] = [
                     'title' => $this->getNameFromPath($file),
                     'path' => $file,
-                    'url' => $this->baseUrl . '/audio-files/' . $this->getRelativePath($file)
+                    'url' => $this->baseUrl . '/audio-files/' . $this->getRelativePath($file),
+                    'description' => $this->getAudioDescription($file)
                 ];
             }
         }
     }
 
-    private function getNameFromPath(string $name): string
+    private function getNameFromPath(string $file): string
     {
-        $name = $this->getRelativePath($name);
+        $name = $this->getRelativePath($file);
         $name = str_replace([...File::SUPPORTED_EXTENSIONS, '.'], '', $name);
         $name = str_replace('-', ' ', $name);
 
         return $name;
     }
 
-    private function getRelativePath(string $name): string
+    private function getRelativePath(string $file): string
     {
-        return substr($name, strlen($this->path) + strlen('/'));
+        return substr($file, strlen($this->audioFilesPath) + strlen('/'));
+    }
+
+    private function getAudioDescription(string $file): string
+    {
+        return is_file($this->audioFilesPath . DIRECTORY_SEPARATOR . $this->getMetaTxtFile($file)) ?
+            file_get_contents($this->audioFilesPath . DIRECTORY_SEPARATOR . $this->getMetaTxtFile($file)) :
+            PODCAST_DESCRIPTION;
+    }
+
+    private function getMetaTxtFile(string $file): string
+    {
+        $file = $this->getRelativePath($file);
+        return str_replace([...File::SUPPORTED_EXTENSIONS, '.'], '', $file) . self::META_TXT_FILE_EXT;
     }
 
     public function outputFeed(): string|bool
