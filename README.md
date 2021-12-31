@@ -26,10 +26,11 @@ platforms.
 
 ## :building_construction: Installation
 
-1. Place your podcast audio files (mp3, m4a, ...) in `web/audio-files`.
-2. Update the `config.php` file.
+1. Place your podcast audio files (mp3, m4a, ...) in `web/audio-files` directory.
+2. Update the `config.php` file (with your favorite text editor or IDE).
    1. Change `ROOT_URL` to your URL of where it will be installed.
    2. Change `PODCAST_NAME` to the name of your podcast.
+   3. Update `PODCAST_DESCRIPTION` to a description of your podcast.
 3. Load the page and specify the generated RSS feed to the different podcast platforms 🚀
 
 ## :thought_balloon: Usage
