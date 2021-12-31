@@ -1,6 +1,12 @@
 {
   "name": "ph-7/podcast-generator",
   "description": "A very simple way to host your podcast files and generate the RSS Podcast feed.",
+  "keywords": [
+    "podcast",
+    "podcast generator",
+    "RSS feed",
+    "RSS podcast"
+  ],
   "type": "project",
   "license": "MIT",
   "autoload": {
