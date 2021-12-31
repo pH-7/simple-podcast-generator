@@ -18,7 +18,7 @@ class Feed extends DOMDocument
 
     private DOMElement $channelElement;
 
-    public function __construct(string $title, string $link)
+    public function __construct(string $title, string $link, string $description)
     {
         // Call the parent constructor (DomDocument)
         parent::__construct();
@@ -31,7 +31,7 @@ class Feed extends DOMDocument
         $titleElement = new DOMElement('title');
         $this->channelElement->appendChild($titleElement);
         $titleElement->appendChild(new DOMText($title));
-        $this->channelElement->appendChild(new DOMElement('description'));
+        $this->channelElement->appendChild(new DOMElement('description', $description));
         $this->channelElement->appendChild(new DOMElement('link', $link));
 
         $this->channelElement;
@@ -45,11 +45,12 @@ class Feed extends DOMDocument
             $titleElement = new DOMElement('title');
             $itemElement->appendChild($titleElement);
             $titleElement->appendChild(new DOMText($file['title']));
-            $itemElement->appendChild(new DOMElement('description'));
+            $itemElement->appendChild(new DOMElement('description', ''));
             $itemElement->appendChild(new DOMElement('link', $file['url']));
             $itemElement->appendChild(new DOMElement('guid', $file['url']));
             $enclosureElement = new DOMElement('enclosure');
             $itemElement->appendChild($enclosureElement);
+            $enclosureElement->setAttribute('url', $file['url']);
             $enclosureElement->setAttribute('type', 'audio/mpeg');
             $enclosureElement->setAttribute('length', (string)filesize($file['path']));
         }
