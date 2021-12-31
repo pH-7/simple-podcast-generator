@@ -39,7 +39,7 @@ class Generator
                     'title' => $this->getNameFromPath($file),
                     'path' => $file,
                     'url' => $this->baseUrl . '/audio-files/' . $this->getRelativePath($file),
-                    'description' => $this->getAudioDescription($file)
+                    'description' => $this->retrieveAudioDescription($file)
                 ];
             }
         }
@@ -59,7 +59,7 @@ class Generator
         return substr($file, strlen($this->audioFilesPath) + strlen('/'));
     }
 
-    private function getAudioDescription(string $file): string
+    private function retrieveAudioDescription(string $file): string
     {
         return is_file($this->audioFilesPath . DIRECTORY_SEPARATOR . $this->getMetaTxtFile($file)) ?
             file_get_contents($this->audioFilesPath . DIRECTORY_SEPARATOR . $this->getMetaTxtFile($file)) :
