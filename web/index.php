@@ -1,4 +1,6 @@
 <?php
+define('PUBLIC_ACCESS', true);
+
 require dirname(__DIR__, 1) . '/vendor/autoload.php';
 require __DIR__ . '/constants.php';
 
