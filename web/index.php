@@ -1,6 +1,6 @@
 <?php
 require dirname(__DIR__, 1) . '/vendor/autoload.php';
-require __DIR__ . '/config.php';
+require __DIR__ . '/constants.php';
 
 use PierreHenry\PodcastGenerator\Podcast\Feed\Generator;
 
