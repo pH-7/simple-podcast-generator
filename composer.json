@@ -16,7 +16,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "PierreHenry\\PodcastGenerator\\Unit\\Test\\": "tests/unit"
+      "PierreHenry\\PodcastGenerator\\Test\\Unit\\": "tests/unit"
     }
   },
   "authors": [

@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace PierreHenry\PodcastGenerator\Unit\Test\Podcast\Feed;
+namespace PierreHenry\PodcastGenerator\Test\Unit\Podcast\Feed;
 
 use PHPUnit\Framework\TestCase;
 use PierreHenry\PodcastGenerator\Podcast\Feed\Generator;
