@@ -72,10 +72,14 @@ class Generator
         return str_replace([...File::SUPPORTED_EXTENSIONS, '.'], '', $file) . self::META_TXT_FILE_EXT;
     }
 
-    public function outputFeed(): string|bool
+    public function outputFeed(bool $isHeader = true): string|bool
     {
         $feed = new Feed(PODCAST_NAME, ROOT_URL, PODCAST_DESCRIPTION);
-        $feed->setHeaders();
+
+        if ($isHeader) {
+            $feed->setHeaders();
+        }
+
         $feed->generate($this->podcastFiles);
 
         return $feed->saveXML();
