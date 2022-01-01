@@ -1,4 +1,6 @@
 <?php
-define('ROOT_URL', 'http://localhost:2021');
-define('PODCAST_NAME', 'Podcast Name');
-define('PODCAST_DESCRIPTION', 'Your podcast description ...');
+$configFile = parse_ini_file(__DIR__ . '/config.ini', true);
+
+define('ROOT_URL', $configFile['settings']['base.url']);
+define('PODCAST_NAME', $configFile['settings']['podcast.name']);
+define('PODCAST_DESCRIPTION', $configFile['settings']['podcast.description']);

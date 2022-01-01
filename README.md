@@ -28,10 +28,10 @@ platforms.
 
 1. Place your podcast audio files (mp3, m4a, ...) in `web/audio-files` directory.
 2. Add a txt file with the same name as your audio file but with `.meta.txt` as extension (without the `mp3` or `ma4` audio extension). Inside, add a description of your audio podcast.
-3. Update the `config.php` file (with your favorite text editor or IDE).
-   1. Change `ROOT_URL` to your URL of where it will be installed.
-   2. Change `PODCAST_NAME` to the name of your podcast.
-   3. Update `PODCAST_DESCRIPTION` to a generic description of your podcast.
+3. Edit the `config.ini` file with your favorite text editor:
+   1. Change `url` to your URL of where it will be installed.
+   2. Change `podcast.name` to the name of your podcast.
+   3. Update `podcast.description` to a generic description of your podcast.
 4. Load the page and specify the generated RSS feed to the different podcast platforms 🚀
 
 ## :thought_balloon: Usage
