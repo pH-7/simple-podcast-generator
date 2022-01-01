@@ -21,8 +21,8 @@ class GeneratorTest extends TestCase
 
         $this->assertIsString($actual);
 
-        $this->assertRegexp('/title/', $actual);
-        $this->assertRegexp('/description/', $actual);
+        $this->assertMatchesRegularExpression('/title/', $actual);
+        $this->assertMatchesRegularExpression('/description/', $actual);
     }
 
     protected function setUp(): void
