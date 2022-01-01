@@ -61,12 +61,12 @@ class Generator
 
     private function retrieveAudioDescription(string $file): string
     {
-        return is_file($this->audioFilesPath . DIRECTORY_SEPARATOR . $this->getMetaTxtFile($file)) ?
-            file_get_contents($this->audioFilesPath . DIRECTORY_SEPARATOR . $this->getMetaTxtFile($file)) :
+        return is_file($this->audioFilesPath . DIRECTORY_SEPARATOR . $this->getMetaTxtFilename($file)) ?
+            file_get_contents($this->audioFilesPath . DIRECTORY_SEPARATOR . $this->getMetaTxtFilename($file)) :
             PODCAST_DESCRIPTION;
     }
 
-    private function getMetaTxtFile(string $file): string
+    private function getMetaTxtFilename(string $file): string
     {
         $file = $this->getRelativePath($file);
         return str_replace([...File::SUPPORTED_EXTENSIONS, '.'], '', $file) . self::META_TXT_FILE_EXT;
