@@ -11,7 +11,7 @@ namespace PierreHenry\PodcastGenerator\Test\Unit\Podcast;
 use PHPUnit\Framework\TestCase;
 use PierreHenry\PodcastGenerator\Podcast\File;
 
-class FileTest extends TestCase
+final class FileTest extends TestCase
 {
     /**
      * @dataProvider validFilesProvider

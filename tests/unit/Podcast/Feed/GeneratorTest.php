@@ -11,7 +11,7 @@ namespace PierreHenry\PodcastGenerator\Test\Unit\Podcast\Feed;
 use PHPUnit\Framework\TestCase;
 use PierreHenry\PodcastGenerator\Podcast\Feed\Generator;
 
-class GeneratorTest extends TestCase
+final class GeneratorTest extends TestCase
 {
     private Generator $generator;
 

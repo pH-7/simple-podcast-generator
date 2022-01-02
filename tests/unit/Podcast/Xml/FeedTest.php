@@ -11,7 +11,7 @@ namespace PierreHenry\PodcastGenerator\Test\Unit\Podcast\Rss;
 use PHPUnit\Framework\TestCase;
 use PierreHenry\PodcastGenerator\Xml\Rss\Feed;
 
-class FeedTest extends TestCase
+final class FeedTest extends TestCase
 {
     private Feed $feed;
 
