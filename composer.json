@@ -5,13 +5,15 @@
     "podcast",
     "podcast generator",
     "RSS feed",
+    "rss generator",
+    "podcasting",
     "RSS podcast"
   ],
   "type": "project",
   "license": "MIT",
   "autoload": {
     "psr-4": {
-      "PierreHenry\\PodcastGenerator\\": "src/"
+      "PierreHenry\\PodcastGenerator\\": "src"
     }
   },
   "autoload-dev": {
@@ -22,7 +24,8 @@
   "authors": [
     {
       "name": "Pierre-Henry Soria",
-      "email": "hi@ph7.me"
+      "email": "hi@ph7.me",
+      "homepage": "https://github.com/pH-7"
     }
   ],
   "require": {
