@@ -13,6 +13,8 @@ use PierreHenry\PodcastGenerator\Podcast\Feed\Generator;
 
 final class GeneratorTest extends TestCase
 {
+    private const AUDIO_TYPE = 'audio/mpeg';
+
     private Generator $generator;
 
     protected function setUp(): void
@@ -28,9 +30,12 @@ final class GeneratorTest extends TestCase
 
         $this->assertIsString($actual);
 
-        $this->assertMatchesRegularExpression('/<title>/', $actual);
-        $this->assertMatchesRegularExpression('/<description>/', $actual);
-        $this->assertMatchesRegularExpression('/' . PODCAST_NAME . '/', $actual);
-        $this->assertMatchesRegularExpression('/' . PODCAST_DESCRIPTION . '/', $actual);
+        $this->assertMatchesRegularExpression(sprintf('#<title>%s</title>#', PODCAST_NAME), $actual);
+        $this->assertMatchesRegularExpression(sprintf('#<description>%s</description>#', PODCAST_DESCRIPTION), $actual);
+        $this->assertMatchesRegularExpression(
+            sprintf('#<link>%s</link>#', 'http://localhost:2021/audio-files/audio.mp3'),
+            $actual
+        );
+        $this->assertMatchesRegularExpression(sprintf('#type="%s"#', self::AUDIO_TYPE), $actual);
     }
 }
