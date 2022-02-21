@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace PierreHenry\PodcastGenerator\Tests\Unit\Podcast\Rss;
+namespace PierreHenry\PodcastGenerator\Tests\Unit\Podcast\Xml\Rss;
 
 use PHPUnit\Framework\TestCase;
 use PierreHenry\PodcastGenerator\Xml\Rss\Feed;
