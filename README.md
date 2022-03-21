@@ -11,8 +11,8 @@
 - [Installation](#building_construction-installation)
 - [Usage](#thought_balloon-usage)
 - [About](#cook-author)
+- [Video](#tv-video)
 - [License](#page_with_curl-license)
-- [📺 Video](#tv-video)
 
 ## :mag_right: Summary
 
@@ -51,15 +51,15 @@ You can keep in touch with me at: *hi@ph7.me* 📮
 
 [![Pierre-Henry Soria](https://www.gravatar.com/avatar/a210fe61253c43c869d71eaed0e90149?s=200&r=g&d=mp)](https://ph7.me "Pierre-Henry Soria")
 
-## :page_with_curl: License
-
-**Podcast RSS Feed Generator** is distributed under [MIT](https://opensource.org/licenses/MIT) license 🚀 Enjoy! ❤️
-
 ## :tv: Video
 
 [![Watch the video](https://i1.ytimg.com/vi/wT5AhxPHGMI/sddefault.jpg)](https://www.youtube.com/watch?v=wT5AhxPHGMI)
 
 👉 **[Click here to watch on YouTube](https://www.youtube.com/watch?v=wT5AhxPHGMI)**
+
+## :page_with_curl: License
+
+**Podcast RSS Feed Generator** is distributed under [MIT](https://opensource.org/licenses/MIT) license 🚀 Enjoy! ❤️
 
 
 <!-- GitHub's Markdown reference links -->
