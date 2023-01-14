@@ -1,6 +1,6 @@
 {
   "name": "ph-7/podcast-generator",
-  "description": "A very simple way to host your podcast files and generate the RSS Podcast feed 🎙",
+  "description": "Simple way to host your podcast files and generate a RSS podcast feed on the fly 🎙",
   "keywords": [
     "podcast",
     "podcast generator",
